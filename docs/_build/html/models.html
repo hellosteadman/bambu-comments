@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Models &mdash; Bambu Comments 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Bambu Comments 2.0 documentation" href="index.html" />
+    <link rel="prev" title="Template tags" href="tags.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tags.html" title="Template tags"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Bambu Comments 2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-bambu_comments.models">
+<span id="models"></span><h1>Models<a class="headerlink" href="#module-bambu_comments.models" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="bambu_comments.models.Comment">
+<em class="property">class </em><tt class="descclassname">bambu_comments.models.</tt><tt class="descname">Comment</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#bambu_comments.models.Comment" title="Permalink to this definition">¶</a></dt>
+<dd><p>A comment posted on an object</p>
+<dl class="class">
+<dt id="bambu_comments.models.Comment.QuerySet">
+<em class="property">class </em><tt class="descname">QuerySet</tt><big>(</big><em>model=None</em>, <em>query=None</em>, <em>using=None</em><big>)</big><a class="headerlink" href="#bambu_comments.models.Comment.QuerySet" title="Permalink to this definition">¶</a></dt>
+<dd><p>A custom queryset adding an extra bit of functinoality to the default</p>
+<dl class="method">
+<dt id="bambu_comments.models.Comment.QuerySet.live">
+<tt class="descname">live</tt><big>(</big><big>)</big><a class="headerlink" href="#bambu_comments.models.Comment.QuerySet.live" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns only approved comments not marked as spam</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambu_comments.models.Comment.approved">
+<tt class="descclassname">Comment.</tt><tt class="descname">approved</tt><em class="property"> = None</em><a class="headerlink" href="#bambu_comments.models.Comment.approved" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set to <tt class="docutils literal"><span class="pre">True</span></tt> when the comment is approved</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambu_comments.models.Comment.body">
+<tt class="descclassname">Comment.</tt><tt class="descname">body</tt><em class="property"> = None</em><a class="headerlink" href="#bambu_comments.models.Comment.body" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sanitised body of the comment</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bambu_comments.models.Comment.check_for_spam">
+<tt class="descclassname">Comment.</tt><tt class="descname">check_for_spam</tt><big>(</big><em>request</em><big>)</big><a class="headerlink" href="#bambu_comments.models.Comment.check_for_spam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks for spam via Akismet (requires the <tt class="docutils literal"><span class="pre">AKISMET_KEY</span></tt> setting to be a non-empty string)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambu_comments.models.Comment.email">
+<tt class="descclassname">Comment.</tt><tt class="descname">email</tt><em class="property"> = None</em><a class="headerlink" href="#bambu_comments.models.Comment.email" title="Permalink to this definition">¶</a></dt>
+<dd><p>The commenter&#8217;s email address</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bambu_comments.models.Comment.get_absolute_url">
+<tt class="descclassname">Comment.</tt><tt class="descname">get_absolute_url</tt><big>(</big><em>*moreargs</em>, <em>**morekwargs</em><big>)</big><a class="headerlink" href="#bambu_comments.models.Comment.get_absolute_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>The URL is taken by calling <tt class="docutils literal"><span class="pre">get_absolute_url()</span></tt> on the parent object, and adding a
+&#8216;#comment-x&#8217; suffix, where &#8216;x&#8217; is the comment ID</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambu_comments.models.Comment.name">
+<tt class="descclassname">Comment.</tt><tt class="descname">name</tt><em class="property"> = None</em><a class="headerlink" href="#bambu_comments.models.Comment.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The commenter&#8217;s name</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambu_comments.models.Comment.sent">
+<tt class="descclassname">Comment.</tt><tt class="descname">sent</tt><em class="property"> = None</em><a class="headerlink" href="#bambu_comments.models.Comment.sent" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date the comment was sent</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambu_comments.models.Comment.spam">
+<tt class="descclassname">Comment.</tt><tt class="descname">spam</tt><em class="property"> = None</em><a class="headerlink" href="#bambu_comments.models.Comment.spam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set to <tt class="docutils literal"><span class="pre">True</span></tt> when the comment has been marked as spam</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambu_comments.models.Comment.website">
+<tt class="descclassname">Comment.</tt><tt class="descname">website</tt><em class="property"> = None</em><a class="headerlink" href="#bambu_comments.models.Comment.website" title="Permalink to this definition">¶</a></dt>
+<dd><p>The commenter&#8217;s website URL</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tags.html"
+                        title="previous chapter">Template tags</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/models.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tags.html" title="Template tags"
+             >previous</a> |</li>
+        <li><a href="index.html">Bambu Comments 2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Steadman.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+Django>=1.4
+pyquery
+html2text
+markdown
+bambu-mail>=2.0
+requests>=2.2.1

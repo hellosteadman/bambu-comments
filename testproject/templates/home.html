@@ -1,0 +1,15 @@
+{% load attachments %}<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Test</title>
+	</head>
+	<body>
+		{% for item in items %}
+			<article>
+				<h1>{{ item }}</h1>
+				{{ item.description|attachments:item }}
+			</article>
+		{% endfor %}
+	</body>
+</html>
