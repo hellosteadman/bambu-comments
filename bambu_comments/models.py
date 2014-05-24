@@ -13,10 +13,6 @@ LOGGER = logging.getLogger('bambu_comments')
 if 'bambu_notifications' in settings.INSTALLED_APPS:
     from bambu_notifications import notify
 
-class CustomTitleString(str):
-    def title(self):
-        return str(self[6:]).title()
-
 class Comment(models.Model):
     """A comment posted on an object"""
     
@@ -137,7 +133,6 @@ class Comment(models.Model):
         ordering = ('-sent',)
         get_latest_by = 'sent'
         db_table = 'comments_comment'
-        app_label = CustomTitleString('bambu_comments')
     
     class QuerySet(models.query.QuerySet):
         """A custom queryset adding an extra bit of functinoality to the default"""
