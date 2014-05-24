@@ -1,10 +1,10 @@
 #!/usr/bin/env python
-from distutils.core import setup
+from setuptools import setup
 from os import path
 
 setup(
     name = 'bambu-comments',
-    version = '2.0',
+    version = '2.0.1',
     description = 'Generic model commenting',
     author = 'Steadman',
     author_email = 'mark@steadman.io',
@@ -27,7 +27,7 @@ setup(
         'bambu_comments': [
             'templates/comments/*.html',
             'templates/comments/*.txt',
-            'templates/search/indexes/comments/*.txt'
+            'templates/search/indexes/bambu_comments/*.txt'
         ]
     },
     classifiers = [
