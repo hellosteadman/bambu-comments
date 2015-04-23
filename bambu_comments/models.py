@@ -9,9 +9,6 @@ import requests, logging
 AKISMET_URL = 'http://%s.rest.akismet.com/1.1/comment-check'
 LOGGER = logging.getLogger('bambu_comments')
 
-if 'bambu_notifications' in settings.INSTALLED_APPS:
-    from bambu_notifications import notify
-
 class CommentQuerySet(models.QuerySet):
     """A custom queryset adding an extra bit of functinoality to the default"""
 
@@ -116,28 +113,15 @@ class Comment(models.Model):
         super(Comment, self).save(*args, **kwargs)
 
         if new and notify:
-            if not 'bambu_notifications' in settings.INSTALLED_APPS:
-                render_to_mail(
-                    u'New comment submitted',
-                    'comments/mail.txt',
-                    {
-                        'comment': self,
-                        'author': self.content_object.author
-                    },
-                    self.content_object.author
-                )
-            else:
-                notify('bambu_comments.comment_posted',
-                    self.content_object.author,
-                    comment = self,
-                    actions = [
-                        {
-                            'urlname': 'admin:comments_comment_change',
-                            'args': [self.pk],
-                            'title': 'View the comment'
-                        }
-                    ]
-                )
+            render_to_mail(
+                u'New comment submitted',
+                'comments/mail.txt',
+                {
+                    'comment': self,
+                    'author': self.content_object.author
+                },
+                self.content_object.author
+            )
 
     class Meta:
         ordering = ('-sent',)
