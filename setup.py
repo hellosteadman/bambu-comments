@@ -4,7 +4,7 @@ from os import path
 
 setup(
     name = 'bambu-comments',
-    version = '3.0',
+    version = '3.1',
     description = 'Generic model commenting',
     author = 'Steadman',
     author_email = 'mark@steadman.io',
