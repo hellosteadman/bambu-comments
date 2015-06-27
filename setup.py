@@ -4,18 +4,18 @@ from os import path
 
 setup(
     name = 'bambu-comments',
-    version = '2.0.1',
+    version = '3.1',
     description = 'Generic model commenting',
     author = 'Steadman',
     author_email = 'mark@steadman.io',
     url = 'https://github.com/iamsteadman/bambu-comments',
     long_description = open(path.join(path.dirname(__file__), 'README')).read(),
     install_requires = [
-        'Django>=1.4',
+        'Django>=1.8',
         'pyquery',
         'html2text',
         'markdown',
-        'bambu-mail>=2.0',
+        'bambu-mail>=3.0',
         'requests>=2.2.1'
     ],
     packages = [

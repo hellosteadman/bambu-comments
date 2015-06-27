@@ -1,9 +1,10 @@
-from django.db import models
-from django.contrib.contenttypes.models import ContentType
-from django.contrib.contenttypes import generic
-from django.contrib.sites.models import Site
-from django.conf import settings
+from bambu_comments.querysets import *
 from bambu_mail.shortcuts import render_to_mail
+from django.conf import settings
+from django.contrib.contenttypes import generic
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.sites.models import Site
+from django.db import models
 import requests, logging
 
 AKISMET_URL = 'http://%s.rest.akismet.com/1.1/comment-check'
