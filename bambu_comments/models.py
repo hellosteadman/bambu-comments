@@ -1,7 +1,7 @@
 from bambu_comments.querysets import *
 from bambu_mail.shortcuts import render_to_mail
 from django.conf import settings
-from django.contrib.contenttypes import generic
+from django.contrib.contenttypes import fields as generic
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.sites.models import Site
 from django.db import models
