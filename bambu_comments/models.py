@@ -128,3 +128,4 @@ class Comment(models.Model):
         ordering = ('-sent',)
         get_latest_by = 'sent'
         db_table = 'comments_comment'
+        app_label = 'bambu_comments'
